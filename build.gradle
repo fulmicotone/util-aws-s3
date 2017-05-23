@@ -1,5 +1,5 @@
 group 'com.fulmicotone'
-version '2017.05.001'
+version '2017.05.002'
 
 apply plugin: 'java'
 
@@ -13,7 +13,7 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.119'
-    compile 'com.github.fulmicotone:commons-utils:v2017.05.004'
+    compile 'com.github.fulmicotone:commons-utils:release~v2017.05.005-SNAPSHOT'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
 }
