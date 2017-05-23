@@ -50,10 +50,8 @@ public class S3RequestWizard {
         public List<PutObjectRequest> createRequests(List<T> sourceList) throws S3RequestCreationException {
 
           return  S3ShapeShiftChains
-                   .anyStrmToS3BoxStrm(this.delimiter,this.collapseKeyFn)
-                   .apply(sourceList.stream())
-                   .map(s3box-> S3FnUtil
-                    .s3BoxToPutObjectRequest(this.bucket,s3box))
+                   .anyStrmToS3BoxStrm(this.delimiter,this.collapseKeyFn).apply(sourceList.stream())
+                   .map(s3box-> S3FnUtil.s3BoxToPutObjectRequest(this.bucket,s3box))
                   .collect(Collectors.toList());
 
         }

@@ -29,7 +29,8 @@ public class S3ShapeShiftChains extends StreamShapeShiftChains {
      */
     public static <T> S3ShapeShiftFunction<T>
     anyStrmToS3BoxStrm(String delimiter, CollapseKeyFunction<T> keyfn) {
-        return (S3ShapeShiftFunction<T>) anyToS4ObjectBoxFn.apply(delimiter).apply(keyfn);
+        return (S3ShapeShiftFunction<T>) anyToS4ObjectBoxFn
+                .apply(delimiter).apply(keyfn);
 
     }
 
