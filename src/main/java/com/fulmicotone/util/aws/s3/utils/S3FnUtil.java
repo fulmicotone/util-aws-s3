@@ -8,6 +8,8 @@ import com.fulmicotone.util.aws.s3.exceptions.S3RequestCreationException;
 import com.fulmicotone.util.aws.s3.business.S3Box;
 import com.google.gson.Gson;
 import org.apache.commons.io.IOUtils;
+
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -30,7 +32,7 @@ public  class S3FnUtil extends FnUtil {
                  Long contentLength = Long.valueOf(contentBytes.length);
                  ObjectMetadata metadata = new ObjectMetadata();
                  metadata.setContentLength(contentLength);
-                 return new PutObjectRequest(bucket,key,is,metadata);
+                 return new PutObjectRequest(bucket,key,new ByteArrayInputStream(contentBytes),metadata);
                  } catch (IOException e) {
                  log.error("Failed while reading bytes from %s", e.getMessage());
                  throw new S3RequestCreationException(e);
